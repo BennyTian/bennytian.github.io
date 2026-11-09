@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0c">
+  <meta name="description" content="谨以此页，纪念亲爱的父亲。那些一起走过的日子，我们永远记得。">
+  <title>永远怀念您 · 父亲</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b0c0c; --text:#e6e5e0; --muted:#a2a39f; --line:#30322f; --accent:#c9b792; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:30px; }
+    body { margin:0; background:var(--bg); color:var(--text); font:15px/1.9 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; letter-spacing:0; }
+    a { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+    a { color:inherit; text-decoration:none; }
+    a:hover { color:var(--text); }
+    a:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+    .serif { font-family:"Songti SC","STSong","SimSun",serif; font-weight:400; }
+    .shell { width:min(1080px,calc(100% - 64px)); margin:auto; }
+    header { min-height:92px; display:flex; align-items:center; justify-content:space-between; gap:24px; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:13px; font-size:13px; }
+    .brand-mark { width:15px; height:15px; border:1px solid #8c8e87; transform:rotate(45deg); display:block; position:relative; }
+    .brand-mark::after { content:""; position:absolute; inset:4px; border:1px solid #8c8e87; }
+    nav { display:flex; gap:30px; color:var(--muted); font-size:12px; }
+    .hero { text-align:center; padding:50px 0 42px; }
+    .eyebrow { margin:0 0 25px; font-size:10px; color:var(--muted); text-transform:uppercase; }
+    .portrait-wrap { width:244px; margin:0 auto 27px; position:relative; }
+    .portrait { width:244px; height:292px; padding:8px; border:1px solid #4c4d46; background:#111310; box-shadow:0 12px 50px #0006; position:relative; }
+    .portrait img { width:100%; height:100%; object-fit:contain; display:none; background:#141613; }
+    .portrait.has-photo img { display:block; }
+    .portrait.has-photo .photo-empty { display:none; }
+    .photo-empty { height:100%; background:#191c18; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:18px; }
+    .photo-empty .serif { font-size:29px; color:#c5c9bd; writing-mode:vertical-rl; }
+    .photo-empty small { font-size:11px; color:#94988e; }
+    .ribbon { position:absolute; width:59px; height:8px; background:#050605; top:18px; right:-9px; transform:rotate(45deg); box-shadow:0 0 0 1px #3d3e38; pointer-events:none; }
+    [hidden] { display:none !important; }
+    h1 { margin:0 0 13px; font-size:38px; line-height:1.6; }
+    .date { color:#c0c0b7; margin:0; font-size:12px; font-variant-numeric:tabular-nums; }
+    .days-apart { display:flex; align-items:baseline; justify-content:center; gap:12px; margin:21px 0 0; color:var(--muted); font-size:12px; }
+    .days-apart strong { min-width:2ch; color:var(--text); font:400 36px/1.2 Georgia,"Songti SC",serif; font-variant-numeric:tabular-nums; }
+    .hero-message { color:var(--muted); margin:18px 0 0; font-size:13px; line-height:2.1; }
+    .section-cue { display:inline-flex; flex-direction:column; gap:5px; align-items:center; margin-top:30px; color:#9a9d94; font-size:10px; }
+    .section-cue::after { content:""; height:27px; width:1px; background:#62665a; }
+    section { border-top:1px solid var(--line); }
+    .section-heading { display:flex; align-items:center; gap:18px; margin:0 0 38px; }
+    .section-number { font:11px/1.5 Georgia,serif; color:#8f9688; }
+    h2 { margin:0; font-size:24px; }
+    .letter-section { padding:58px 0 62px; }
+    .letter-layout { display:grid; grid-template-columns:1fr 2fr; gap:70px; }
+    .side-note { max-width:190px; margin:0; color:#9da197; font-size:12px; line-height:2.2; }
+    .letter { max-width:610px; }
+    .letter p { margin:0 0 20px; color:#bebfb8; font-size:15px; line-height:2.25; }
+    .letter .salutation { color:#e6e5e0; font-size:20px; margin-bottom:24px; }
+    .letter .signature { margin:30px 0 0; color:#aeb3a6; font-size:12px; text-align:right; }
+    .journey-section { padding:53px 0 59px; }
+    .journey { display:grid; grid-template-columns:repeat(3,1fr); gap:42px; }
+    .place { position:relative; padding:18px 0 0; border-top:1px solid #45483e; }
+    .place::before { content:""; position:absolute; top:-3px; left:0; width:5px; height:5px; background:#9caa8f; border-radius:50%; }
+    .place-label { margin:0 0 9px; color:#9ba193; font-size:11px; }
+    .place h3 { font-size:22px; margin:0 0 13px; }
+    .place p:last-child { color:#a8aca1; font-size:13px; line-height:2.1; margin:0; }
+    .candle-section { text-align:center; padding:51px 0 55px; }
+    .candle-scene { height:120px; width:100px; margin:0 auto 17px; position:relative; display:flex; align-items:flex-end; justify-content:center; }
+    .candle { width:29px; height:57px; background:linear-gradient(90deg,#73756c,#cfcdc0 48%,#a4a498 80%,#77796f); border-radius:3px 3px 0 0; position:relative; box-shadow:0 8px 16px #0008; }
+    .candle::before { content:""; position:absolute; top:-3px; left:0; width:29px; height:6px; border-radius:50%; background:#bfbeb0; }
+    .wick { position:absolute; top:-9px; left:14px; width:2px; height:8px; background:#454136; }
+    .flame { position:absolute; left:7px; top:-37px; width:16px; height:32px; border-radius:80% 25% 60% 50%; transform:rotate(3deg); background:linear-gradient(0deg,#dca75a,#ffe2a3 55%,#fff9df); transform-origin:50% 100%; animation:flicker 3s ease-in-out infinite alternate; box-shadow:0 0 25px 7px #d6b3703d,0 0 65px 20px #b4934a17; }
+    .candle-scene::after { content:""; position:absolute; bottom:-4px; width:66px; height:4px; background:#46493e; border-radius:50%; }
+    @keyframes flicker { 0%,100% { transform:rotate(-3deg) scaleY(1); } 35% { transform:rotate(4deg) scaleY(.93); } 70% { transform:rotate(-1deg) scaleY(1.05); } }
+    .candle-section h2 { font-size:25px; margin:0 0 10px; }
+    .candle-section p { font-size:12px; color:var(--muted); margin:0 0 24px; }
+    footer { border-top:1px solid var(--line); min-height:87px; display:flex; justify-content:space-between; align-items:center; gap:20px; font-size:10px; color:#93978a; }
+    @media (min-width:1400px) { .hero { padding-top:61px; padding-bottom:45px; } .portrait-wrap,.portrait { width:260px; } .portrait { height:310px; } }
+    @media (max-width:650px) {
+      .shell { width:calc(100% - 40px); }
+      header { min-height:74px; gap:12px; }
+      .brand { font-size:12px; gap:10px; }
+      nav { gap:19px; font-size:11px; }
+      .hero { padding-top:35px; padding-bottom:30px; }
+      .eyebrow { margin-bottom:22px; font-size:9px; }
+      .portrait-wrap,.portrait { width:218px; }
+      .portrait { height:262px; }
+      h1 { font-size:29px; }
+      .hero-message { font-size:12px; }
+      .section-cue { margin-top:23px; }
+      .letter-section,.journey-section { padding:36px 0; }
+      .section-heading { margin-bottom:25px; }
+      h2 { font-size:22px; }
+      .letter-layout { grid-template-columns:1fr; gap:25px; }
+      .side-note { max-width:none; }
+      .letter p { font-size:14px; line-height:2.2; }
+      .journey { grid-template-columns:1fr; gap:29px; }
+      .place { padding-top:14px; }
+      .place h3 { margin-bottom:8px; }
+      footer { padding:23px 0; align-items:flex-start; flex-direction:column; gap:13px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .flame { animation:none; } }
+    @media print {
+      nav,.section-cue { display:none !important; }
+      body { print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+      .shell { width:90%; }
+      section { break-inside:avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="brand" href="#top" aria-label="返回纪念页顶部"><span class="brand-mark" aria-hidden="true"></span><span>永念 · 父亲</span></a>
+      <nav aria-label="页内导航"><a href="#letter">思念</a><a href="#journey">足迹</a><a href="#remembrance">纪念</a></nav>
+    </header>
+    <main id="top">
+      <div class="hero">
+        <p class="eyebrow">IN LOVING MEMORY OF MY FATHER</p>
+        <div class="portrait-wrap">
+          <div class="portrait" id="portrait">
+            <!-- Replace the empty src below with the photo URL. -->
+            <img id="father-photo" alt="父亲生前的照片" src="https://imgcdn.biduwenxue.com/file/backup/codex/avatar.png?x-oss-process=image/resize,w_640/format,webp" />
+            <div class="photo-empty"><span class="serif">父亲</span><small>留一张您熟悉的模样</small></div>
+            <span class="ribbon" aria-hidden="true"></span>
+          </div>
+        </div>
+        <h1 class="serif">父亲，永远怀念您。</h1>
+        <p class="date"><time datetime="2026-10-21T17:20:00+08:00">2026 年 10 月 21 日 · 下午 5 时 20 分</time></p>
+        <p class="days-apart" role="status" aria-live="polite" aria-atomic="true"><span>您离开我们已</span><strong id="days-apart">19</strong><span>天</span></p>
+        <p class="hero-message">那些一起走过的日子，我们永远记得。<br>愿您安息，愿思念有处安放。</p>
+        <a class="section-cue" href="#letter">写给父亲</a>
+      </div>
+      <section class="letter-section" id="letter" aria-labelledby="letter-title">
+        <div class="section-heading"><span class="section-number">01 /</span><h2 id="letter-title" class="serif">有些话，还想对您说</h2></div>
+        <div class="letter-layout">
+          <p class="side-note">从前，相聚的日子很短。<br>如今，想念的日子很长。</p>
+          <div class="letter">
+            <p class="salutation serif">爸：</p>
+            <p>我三四岁时，您就出门工作了。后来，您和妈妈一直在汕头，我在余干上学，去南昌读大学，再到北京工作。很长一段时间里，我们一年能一起生活的日子，只有春节的那一周。</p>
+            <p>2025 年，因为女儿出生，我接您和妈妈来北京。10 月 9 日，您和妈妈来到我身边。原本盼着往后能多一些团聚，多一些一家人在一起的日常。</p>
+            <p>后来的这一年多，我们一起走过了漫长的求医和治疗。直到 2026 年 10 月 21 日下午 5 点 20 分，您离开了。</p>
+            <p>我还有许多关于您的故事没有听过，还有许多话想和您慢慢说。我想把记得的事写下来，也去听听妈妈和亲友记忆里的您，一点一点，留下您这一生的故事。</p>
+            <p>爸，我们会一直记得您。</p>
+            <p class="signature">您的孩子 敬念</p>
+          </div>
+        </div>
+      </section>
+      <section class="journey-section" id="journey" aria-labelledby="journey-title">
+        <div class="section-heading"><span class="section-number">02 /</span><h2 id="journey-title" class="serif">岁月里的足迹</h2></div>
+        <div class="journey">
+          <article class="place"><p class="place-label">童年的记忆</p><h3 class="serif">江西 · 余干</h3><p>我在这里上学、长大。每年春节，是我们一家人难得团聚的日子。</p></article>
+          <article class="place"><p class="place-label">长年的牵挂</p><h3 class="serif">广东 · 汕头</h3><p>您和妈妈在这里工作多年。这里有许多我还没听过、想慢慢了解的故事。</p></article>
+          <article class="place"><p class="place-label">最后的陪伴</p><h3 class="serif">北京</h3><p>2025 年 10 月 9 日，您和妈妈来到北京。此后这一年多，我们一起走过。</p></article>
+        </div>
+      </section>
+      <section class="candle-section" id="remembrance" aria-labelledby="candle-title">
+        <div class="candle-scene" id="candle-scene" aria-hidden="true"><div class="candle"><span class="wick"></span><span class="flame"></span></div></div>
+        <h2 class="serif" id="candle-title">一盏心灯，长久思念</h2>
+        <p id="candle-message">灯已亮起，思念长在。愿父亲安息。</p>
+      </section>
+    </main>
+    <footer>
+      <span>谨以此页，纪念我们永远深爱的父亲。</span>
+      <span>爱与记忆，长留心间。</span>
+    </footer>
+  </div>
+  <script>
+    (() => {
+      const photo = document.getElementById('father-photo');
+      const portrait = document.getElementById('portrait');
+      const dayLength = 24 * 60 * 60 * 1000;
+      const beijingOffset = 8 * 60 * 60 * 1000;
+      const departureTime = Date.parse(document.querySelector('.date time').dateTime);
+      const departureDay = Math.floor((departureTime + beijingOffset) / dayLength);
+      let dayTimer;
+      function updateDaysApart() {
+        clearTimeout(dayTimer);
+        const beijingNow = Date.now() + beijingOffset;
+        // Count calendar days in Beijing, with the departure date as day zero.
+        const days = Math.max(0, Math.floor(beijingNow / dayLength) - departureDay);
+        document.getElementById('days-apart').textContent = String(days);
+        document.querySelector('.days-apart').hidden = false;
+        dayTimer = setTimeout(updateDaysApart, dayLength - (beijingNow % dayLength) + 50);
+      }
+      updateDaysApart();
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) updateDaysApart();
+      });
+      function updatePhotoDisplay() {
+        portrait.classList.toggle('has-photo', photo.complete && photo.naturalWidth > 0);
+      }
+      photo.addEventListener('load', updatePhotoDisplay);
+      photo.addEventListener('error', updatePhotoDisplay);
+      updatePhotoDisplay();
+    })();
+  </script>
+
+
+</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>
